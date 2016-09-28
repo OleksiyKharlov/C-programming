@@ -1,0 +1,6 @@
+c:\users\oleksiy\documents\visual studio 2015\Projects\BootCampCSPractice20160923\BootCampCSPractice20160923\bin\Debug\BootCampCSPractice20160923.exe.config
+c:\users\oleksiy\documents\visual studio 2015\Projects\BootCampCSPractice20160923\BootCampCSPractice20160923\obj\Debug\BootCampCSPractice20160923.csprojResolveAssemblyReference.cache
+c:\users\oleksiy\documents\visual studio 2015\Projects\BootCampCSPractice20160923\BootCampCSPractice20160923\bin\Debug\BootCampCSPractice20160923.exe
+c:\users\oleksiy\documents\visual studio 2015\Projects\BootCampCSPractice20160923\BootCampCSPractice20160923\bin\Debug\BootCampCSPractice20160923.pdb
+c:\users\oleksiy\documents\visual studio 2015\Projects\BootCampCSPractice20160923\BootCampCSPractice20160923\obj\Debug\BootCampCSPractice20160923.exe
+c:\users\oleksiy\documents\visual studio 2015\Projects\BootCampCSPractice20160923\BootCampCSPractice20160923\obj\Debug\BootCampCSPractice20160923.pdb
