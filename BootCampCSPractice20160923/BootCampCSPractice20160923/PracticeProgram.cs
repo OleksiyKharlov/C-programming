@@ -2,106 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BootCampCSPractice20160923
 {
-    class BooksCatalog
-    {
-        public List<Book> books = new List<Book>();
-
-        
-        public class Book
-        {
-            public string Id { get; set; }
-            public string Author { get; set; }
-            public string Title { get; set; }
-            public string Genre { get; set; }
-            public double Price { get; set; }
-            public DateTime PublishDate { get; set; }
-            public string Description { get; set; }
-
-            public Book(
-                string id,
-                string author,
-                string title,
-                string genre,
-                double price,
-                DateTime publishdate,
-                string desc)
-            {
-                Id = id;
-                Author = author;
-                Title = title;
-                Genre = genre;
-                Price = price;
-                PublishDate = publishdate;
-                Description = desc;
-            }
-            public override string ToString()
-            {   
-                return string.Format("ID: {0}\nAuthor: {1}\nTitle: {2}\nGenre: {3}\nPrice: {4}\nPublish date: {5}\nDescription: {6}",
-                    Id, Author, Title, Genre, Price, PublishDate.ToLongDateString(), Description);
-            }
-        }
-        public BooksCatalog(string xmlFilename)
-        {
-            XDocument xmlDoc = XDocument.Load(xmlFilename);
-            if (xmlDoc != null && xmlDoc.Root.Name == "catalog")
-            {
-                XElement xmlElmCatalog = xmlDoc.Element("catalog");
-                if (xmlElmCatalog != null && xmlElmCatalog.HasElements)
-                {
-                    foreach (var xmlElmBook in xmlElmCatalog.Elements())
-                    {
-                        var Id = xmlElmBook.Attributes().FirstOrDefault(n => n.Name == "id").Value;
-                        var Author = xmlElmBook.Elements().FirstOrDefault(n => n.Name == "author").Value;
-                        var Title = xmlElmBook.Elements().FirstOrDefault(n => n.Name == "title").Value;
-                        var Genre = xmlElmBook.Elements().FirstOrDefault(n => n.Name == "genre").Value;
-                        var Price = double.Parse(xmlElmBook.Elements().FirstOrDefault(n => n.Name == "price").Value);
-                        var PublDate = DateTime.Parse(xmlElmBook.Elements().FirstOrDefault(n => n.Name == "publish_date").Value);
-                        var Description = xmlElmBook.Elements().FirstOrDefault(n => n.Name == "description").Value;
-                        books.Add(new Book(Id, Author, Title, Genre, Price, PublDate, Description));
-                    }
-                }
-            }
-        }
-
-        public void savetoXML(string xmlFilename)
-        {
-            var xmlCatalog = new XElement("catalog");
-
-            foreach(var book in books)
-            {
-                var xmlBook = new XElement("book");
-                xmlBook.SetAttributeValue("id", book.Id);
-                var xmlAuthor = new XElement("author");
-                xmlAuthor.Value = book.Author;
-                var xmlTitle = new XElement("title");
-                xmlTitle.Value = book.Title;
-                var xmlGenre = new XElement("genre");
-                xmlGenre.Value = book.Genre;
-                var xmlPrice = new XElement("price");
-                xmlPrice.Value = book.Price.ToString();
-                var xmlPublDate = new XElement("publish_date");
-                xmlPublDate.Value = book.PublishDate.ToLongDateString();
-                var xmlDesc = new XElement("description");
-                xmlDesc.Value = book.Description;
-
-                xmlBook.Add(xmlAuthor);
-                xmlBook.Add(xmlTitle);
-                xmlBook.Add(xmlGenre);
-                xmlBook.Add(xmlPrice);
-                xmlBook.Add(xmlPublDate);
-                xmlBook.Add(xmlDesc);
-                xmlCatalog.Add(xmlBook);
-            }
-
-            var newXmlDoc = new XDocument(xmlCatalog);
-            newXmlDoc.Save(xmlFilename);
-        }
-    }
 
 
     
@@ -110,7 +13,7 @@ namespace BootCampCSPractice20160923
         static void EditXml(string xmlFilename)
         {
             var newXdoc = new XDocument(xmlFilename);
-            if (newXdoc != null && newXdoc.Root.HasElements) // спосіб перевірки
+            if (newXdoc != null && newXdoc.Root.HasElements)
             {
                 var xmlCatalog = new XElement(newXdoc.Element("catalog"));
                 if (xmlCatalog != null && xmlCatalog.HasElements)
@@ -143,8 +46,6 @@ namespace BootCampCSPractice20160923
             Console.WriteLine("And now object LINQ, used with my custom generic collection.");
             Console.ReadKey(true);
 
-            //var rand = new Random((int)DateTime.Now.Ticks);
-            //var Customers = new List<MyCustomer>();
             var Customers = new MyCollection<MyCustomer>();
             for (int i = 0; i < 5; i++)
             {
@@ -177,8 +78,6 @@ namespace BootCampCSPractice20160923
             if (rbc == null) throw new NullReferenceException();
 
             Console.WriteLine("Shows all with name \"Steve\"");
-            // This works fine here with both MyCollection<> and List<>
-            //var result0 = from n in Customers where n.Name.StartsWith("Steve") select n;
             var result0 = Customers.Where(n => n.Name.StartsWith("Steve")).ToList();
             foreach (var i in result0)
             {
@@ -186,9 +85,6 @@ namespace BootCampCSPractice20160923
             }
             Console.WriteLine("");
             Console.ReadKey(true);
-            // tryparse.
-            // When using MyCollection<> (MyCollection is IEnumerable<T>) throws NullReferenceException here.
-            // When using List<> here works fine.
             Console.WriteLine("Sorted by Name Ascending using LINQ");
             var CustList = Customers.ToList();
             var result = CustList.OrderBy(n => n.Name)
@@ -217,15 +113,6 @@ namespace BootCampCSPractice20160923
             }
             Console.WriteLine();
             Console.ReadKey(true);
-
-
-
-
-            //for (int i = 0; i < IntCollection.Length; i++)
-            //{
-            //    Console.WriteLine("{0}. {1}", i, IntCollection[i]);
-            //}
-            //Console.ReadKey(true);
         }
     }
 }

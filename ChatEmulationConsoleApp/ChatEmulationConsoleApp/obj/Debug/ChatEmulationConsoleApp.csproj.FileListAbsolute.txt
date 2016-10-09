@@ -1,0 +1,6 @@
+c:\users\oleksiy\documents\visual studio 2015\Projects\ChatEmulationConsoleApp\ChatEmulationConsoleApp\bin\Debug\ChatEmulationConsoleApp.exe.config
+c:\users\oleksiy\documents\visual studio 2015\Projects\ChatEmulationConsoleApp\ChatEmulationConsoleApp\obj\Debug\ChatEmulationConsoleApp.csprojResolveAssemblyReference.cache
+c:\users\oleksiy\documents\visual studio 2015\Projects\ChatEmulationConsoleApp\ChatEmulationConsoleApp\bin\Debug\ChatEmulationConsoleApp.exe
+c:\users\oleksiy\documents\visual studio 2015\Projects\ChatEmulationConsoleApp\ChatEmulationConsoleApp\bin\Debug\ChatEmulationConsoleApp.pdb
+c:\users\oleksiy\documents\visual studio 2015\Projects\ChatEmulationConsoleApp\ChatEmulationConsoleApp\obj\Debug\ChatEmulationConsoleApp.exe
+c:\users\oleksiy\documents\visual studio 2015\Projects\ChatEmulationConsoleApp\ChatEmulationConsoleApp\obj\Debug\ChatEmulationConsoleApp.pdb
